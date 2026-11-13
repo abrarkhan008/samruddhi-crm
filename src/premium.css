@@ -1,0 +1,191 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap");
+
+:root {
+  --navy: #0b1f3a;
+  --navy2: #14305a;
+  --gold: #c9971c;
+  --gold2: #e6c36a;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.font-display {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+/* ---------- helpers ---------- */
+.gold-text {
+  background: linear-gradient(90deg, var(--gold2), var(--gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.btn-gold {
+  background: linear-gradient(135deg, var(--gold2), var(--gold));
+  color: var(--navy);
+  font-weight: 700;
+  box-shadow: 0 8px 24px -8px rgba(201, 151, 28, 0.7);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px -10px rgba(201, 151, 28, 0.85);
+}
+.btn-navy {
+  background: linear-gradient(135deg, var(--navy2), var(--navy));
+  color: var(--gold2);
+  font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-navy:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px -10px rgba(11, 31, 58, 0.8);
+}
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+.glass-dark {
+  background: rgba(11, 31, 58, 0.55);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(230, 195, 106, 0.25);
+}
+.fade-up {
+  animation: fadeUp 0.55s ease both;
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+/* ---------- backgrounds (drop your photos into /public) ---------- */
+.hero-bg {
+  background:
+    radial-gradient(circle at 80% 20%, rgba(201, 151, 28, 0.28), transparent 45%),
+    linear-gradient(180deg, rgba(11, 31, 58, 0.72), rgba(11, 31, 58, 0.94)),
+    url("/hero.jpg") center / cover no-repeat,
+    linear-gradient(135deg, #0b1f3a, #1b3a66);
+}
+.login-bg {
+  background:
+    linear-gradient(120deg, rgba(11, 31, 58, 0.9), rgba(11, 31, 58, 0.55)),
+    url("/login-bg.jpg") center / cover no-repeat,
+    radial-gradient(circle at 20% 20%, #1f4a85, transparent 50%),
+    linear-gradient(135deg, #0b1f3a, #14305a 55%, #0b1f3a);
+}
+
+/* ---------- premium look for ALL existing dashboards ---------- */
+.premium section.bg-white,
+.premium .bg-white.rounded-xl {
+  border: 1px solid #edf0f5;
+  border-radius: 18px;
+  box-shadow: 0 12px 32px -16px rgba(11, 31, 58, 0.25);
+}
+.premium section.bg-white h2 {
+  border-bottom: 0;
+  position: relative;
+  padding-bottom: 8px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+.premium section.bg-white h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 42px;
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--gold2), var(--gold));
+}
+.premium .border-l-4 {
+  border-left-width: 0;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.premium .border-l-4::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background: linear-gradient(180deg, var(--gold2), var(--gold));
+}
+.premium .border-l-4:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 34px -16px rgba(11, 31, 58, 0.35);
+}
+.premium .bg-gradient-to-r {
+  background:
+    radial-gradient(circle at 90% 0%, rgba(201, 151, 28, 0.35), transparent 45%),
+    linear-gradient(120deg, #0b1f3a, #1b3a66) !important;
+  border-radius: 20px;
+  border-bottom-width: 0 !important;
+  box-shadow: 0 20px 40px -20px rgba(11, 31, 58, 0.8);
+}
+.premium input,
+.premium select {
+  border-color: #dfe4ec;
+  border-radius: 10px;
+  background: #fff;
+}
+.premium input:focus,
+.premium select:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201, 151, 28, 0.2);
+}
+.premium table th {
+  white-space: nowrap;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.premium tbody tr:hover {
+  background: #fafbfd;
+}
+.premium button {
+  transition: all 0.15s;
+}
+
+/* ---------- print (payslip) ---------- */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .print-area,
+  .print-area * {
+    visibility: visible;
+  }
+  .print-area {
+    position: absolute;
+    inset: 0;
+    background: #fff;
+    padding: 24px;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
